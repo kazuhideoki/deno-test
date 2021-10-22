@@ -1,10 +1,13 @@
-import { opine, serveStatic } from "../deps.ts";
+import { opine } from "../deps.ts";
+
+// deno run --watch --allow-net --allow-read ./express/server.ts
+
 const app = opine();
-app.use(serveStatic("public")); // 静的なファイルを public 配下に置く
+// app.use(serveStatic("public")); // 静的なファイルを public 配下に置く
 
 // ファイルの内容を返す
 app.get("/", function (_req, res) {
-  res.sendFile("./views/index.html");
+  res.send("Hello Deno home!");
 });
 
 // 文字列を返す
